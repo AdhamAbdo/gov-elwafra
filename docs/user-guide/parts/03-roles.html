@@ -1,0 +1,58 @@
+<section class="chapter" id="ch03" data-num="03" data-icon="ShieldCheck" data-title="الأدوار والصلاحيات" data-lead="من يستطيع ماذا، ولماذا يرفض النظام أحياناً." data-pose="presentLeft">
+
+<p class="lead">لكل مستخدم <b>دور</b> في كل شركة ينتمي إليها. الدور يحدد ما يظهر له وما يستطيع فعله. وهذه القواعد يفرضها النظام نفسه عند كل عملية، فلا يمكن تجاوزها بتغيير رابط أو بإخفاء زر.</p>
+
+<h2><span class="icon-chip">{{icon:Users:15}}</span>الأدوار الخمسة</h2>
+<div class="role-card"><header><span class="icon-chip">{{icon:ShieldCheck:14}}</span><b>مسؤول النظام</b><small>الإدارة الكاملة</small></header><div class="rb">
+<p>ينشئ الشركات ويعدّلها ويعطّلها ويرفع شعاراتها، ويدعو المستخدمين ويمنحهم الأدوار ويحدد وصولهم للأقسام، ويضبط حدود الإشعارات. ويملك كل ما يملكه مدير الشركة داخل شركاته.</p></div></div>
+<div class="role-card"><header><span class="icon-chip">{{icon:Globe:14}}</span><b>المدير العام</b><small>عدة شركات</small></header><div class="rb">
+<p>صلاحيات مدير الشركة نفسها لكن على أكثر من شركة، ويُمنح هذا النطاق بتعيين صريح من مسؤول النظام. لا يدير المستخدمين ولا ينشئ الشركات.</p></div></div>
+<div class="role-card"><header><span class="icon-chip">{{icon:Building2:14}}</span><b>مدير شركة</b><small>إدارة شركته</small></header><div class="rb">
+<p>يضيف الالتزامات والأقسام والتراخيص والموظفين والعقود، ويراجع نتائج الفحص، ويُنشئ الإجراءات التصحيحية ويُسندها ويبتّ فيها، ويستورد البيانات، ويطّلع على سجل التدقيق.</p></div></div>
+<div class="role-card"><header><span class="icon-chip">{{icon:ClipboardCheck:14}}</span><b>مسؤول امتثال</b><small>التنفيذ والتحقق</small></header><div class="rb">
+<p>يسجّل نتائج الفحص، ويضيف التراخيص ويتحقق منها يدوياً ومن المنصات الحكومية ويغلق متابعاتها، ويرفع المرفقات، ويرى بيانات الموظفين. لا يراجع النتائج ولا يجدّد التراخيص ولا يغيّر بقية البيانات الأساسية.</p></div></div>
+<div class="role-card"><header><span class="icon-chip">{{icon:Eye:14}}</span><b>اطلاع فقط</b><small>قراءة</small></header><div class="rb">
+<p>يرى البيانات ضمن نطاقه دون أي إضافة أو تعديل. لا يرى بيانات الموظفين والعقود.</p></div></div>
+
+<h2><span class="icon-chip">{{icon:Table2:15}}</span>مصفوفة الصلاحيات</h2>
+<ttl icon="Grid3x3" title="ماذا يستطيع كل دور" sub="ضمن شركاته وأقسامه المخصصة له" />
+<table>
+<thead><tr><th>الإجراء</th><th class="c">مسؤول النظام</th><th class="c">المدير العام</th><th class="c">مدير شركة</th><th class="c">مسؤول امتثال</th><th class="c">اطلاع فقط</th></tr></thead>
+<tbody>
+<tr><td>عرض بيانات شركته وأقسامه</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td></tr>
+<tr><td>عرض بيانات الموظفين والعقود</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>تسجيل نتيجة الفحص</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>مراجعة النتائج (اعتماد / إعادة / تصعيد)</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>إضافة التزام جديد</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>إنشاء إجراء تصحيحي وإسناده والبتّ فيه</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>إضافة ترخيص</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>تجديد ترخيص ومتابعة تجديده</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>التحقق اليدوي من ترخيص</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>إضافة موظف وعقد وتجديد عقد وتأكيد إنهاء خدمة</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>تسجيل تحقق من منصة حكومية وإغلاق متابعته</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>إضافة الأقسام وتعديلها وتعطيلها</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>رفع مرفق على سجل</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td></tr>
+<tr><td>إزالة مرفق</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><part/></td><td class="c"><no/></td></tr>
+<tr><td>استيراد البيانات من CSV</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>عرض سجل التدقيق</td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>إضافة شركة وتعديلها وتعطيلها وتغيير شعارها</td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>دعوة المستخدمين وإدارة أدوارهم</td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+<tr><td>تعديل حدود الإشعارات</td><td class="c"><yes/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td><td class="c"><no/></td></tr>
+</tbody>
+</table>
+<p class="small"><span class="part">{{icon:CircleDot:11}}</span> جزئي: يستطيع مسؤول الامتثال إزالة المرفقات التي رفعها هو فقط.</p>
+
+<h2><span class="icon-chip">{{icon:Layers:15}}</span>نطاق الصلاحية: الشركة والقسم</h2>
+<ul>
+<li>الدور يُمنح <b>على شركة</b>. قد يكون لك دور مختلف في كل شركة تنتمي إليها.</li>
+<li>يمكن لمسؤول النظام <b>حصر وصولك بأقسام محددة</b> داخل الشركة. عندها ترى سجلات تلك الأقسام وسجلات الشركة العامة فقط.</li>
+<li>القوائم والمرشحات ولوحة المتابعة لا تعرض لك إلا ما يخصك؛ فلن ترى شركات الآخرين حتى لو بحثت عنها.</li>
+</ul>
+
+<h2><span class="icon-chip">{{icon:ShieldAlert:15}}</span>قواعد صارمة تحمي النظام</h2>
+<callout hue="red" icon="ShieldAlert" title="لا مراجعة ذاتية">لا يستطيع أي مستخدم اعتماد أو إعادة نتيجة فحص أرسلها بنفسه، حتى لو كان مديراً. تُراجَع النتيجة بيد شخص آخر.</callout>
+<callout hue="red" icon="ShieldAlert" title="لا يغلق صاحب الإجراء إجراءه">يطلب مالك الإجراء التحقق فقط، ويغلقه مدير آخر مستقل. هكذا لا يُغلق إجراء بتوقيع من نفّذه.</callout>
+<callout hue="red" icon="ShieldAlert" title="لا تعدّل دورك بنفسك">لا يمكنك تغيير أدوارك أو تعطيل حسابك. وآخر مسؤول نظام في أي شركة لا يمكن تعطيله أو سحب دوره، حتى لا تبقى شركة بلا مدير.</callout>
+<callout hue="amber" icon="TriangleAlert" title="الحساب المعطَّل">المستخدم المعطَّل تتوقف صلاحياته فلا يرى بيانات الشركة ولا يستلم إشعارات، وتبقى سجلاته القديمة محفوظة باسمه. ولا يُعطَّل حساب إلا بسبب مكتوب.</callout>
+
+</section>

@@ -1,0 +1,58 @@
+GOVERNANCE & COMPLIANCE MANAGEMENT SYSTEM — DEMO ACCOUNTS ONLY
+===============================================================
+
+Purpose: local/demo testing only. These fictional accounts use the reserved
+example domain. Do NOT use these passwords in production, do NOT email this
+file, and do NOT commit real credentials to the repository.
+
+Create every account in Supabase Dashboard > Authentication > Users > Add user.
+Use the exact email and password below, then copy the generated Auth UUID for
+role assignment. Each password is intentionally unique.
+
+| Display name                         | Role                    | Company scope                     | Email                                      | Demo password              |
+|--------------------------------------|-------------------------|-----------------------------------|--------------------------------------------|----------------------------|
+| System Administrator                 | system_administrator    | All three [DEMO] companies        | admin@governance.local                     | 2026#Secure01       |
+| Bakery Manager                       | company_manager         | [DEMO] الوفرة للمخبوزات           | manager@alwafra.local                      | 2026#Bakery02        |
+| Bakery Compliance Officer            | compliance_officer      | [DEMO] الوفرة للمخبوزات / الرياض  | compliance@alwafra.local                   | 2026#Bakery03         |
+| Bakery Read-only User                | read_only               | [DEMO] الوفرة للمخبوزات           | viewer@alwafra.local                       | 2026#Bakery04         |
+| Paper Manager                        | company_manager         | [DEMO] صوافي للمنتجات الورقية     | manager@sawafi.local                       | 2026#Paper05        |
+| Paper Compliance Officer             | compliance_officer      | [DEMO] صوافي للمنتجات الورقية/جدة | compliance@sawafi.local                    | 2026#Paper06          |
+| Paper Read-only User                 | read_only               | [DEMO] صوافي للمنتجات الورقية     | viewer@sawafi.local                        | 2026#Paper07          |
+| Chocolate Manager                    | company_manager         | [DEMO] صيوان للشوكولاتة           | manager@siwan.local                        | 2026#Choco08      |
+| Chocolate Compliance Officer         | compliance_officer      | [DEMO] صيوان للشوكولاتة/الدمام    | compliance@siwan.local                     | 2026#Choco09         |
+| Chocolate Read-only User             | read_only               | [DEMO] صيوان للشوكولاتة           | viewer@siwan.local                         | 2026#Choco10        |
+
+AFTER CREATING EACH AUTH USER
+------------------------------
+1. Copy the new Auth UUID from Supabase Authentication > Users.
+2. Create a profile:
+
+   insert into public.user_profiles (id, display_name, active)
+   values ('AUTH_USER_UUID', 'DISPLAY_NAME', true);
+
+3. Assign the role to the matching [DEMO] company:
+
+   insert into public.user_company_roles (user_id, company_id, role)
+   select 'AUTH_USER_UUID', id, 'ROLE_NAME'::app_role
+   from public.companies
+   where name_ar = 'DEMO_COMPANY_NAME';
+
+4. For a branch-only compliance officer, add branch access:
+
+   insert into public.user_branch_access (user_id, branch_id)
+   select 'AUTH_USER_UUID', b.id
+   from public.branches b
+   join public.companies c on c.id = b.company_id
+   where c.name_ar = 'DEMO_COMPANY_NAME'
+     and b.name_ar = 'DEMO_BRANCH_NAME';
+
+SYSTEM ADMINISTRATOR SCOPE
+--------------------------
+Assign the administrator to every [DEMO] company:
+
+insert into public.user_company_roles (user_id, company_id, role)
+select 'ADMIN_AUTH_USER_UUID', c.id, 'system_administrator'::app_role
+from public.companies c
+where c.name_ar like '[DEMO]%';
+
+Remove this file and delete all demo users before production use.

@@ -1,0 +1,41 @@
+{
+  "name": "governance-compliance-management",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "e2e": "node scripts/e2e.mjs",
+    "e2e:full": "node scripts/e2e.mjs --mutate",
+    "scheduler": "node scripts/run-scheduler.mjs",
+    "notify": "node scripts/run-notifications.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@supabase/supabase-js": "^2.118.0",
+    "@tanstack/react-table": "^9.3.1",
+    "es-abstract": "^1.24.2",
+    "lucide-react": "^1.59.0",
+    "next": "^16.4.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-hook-form": "^7.90.0",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
+  }
+}

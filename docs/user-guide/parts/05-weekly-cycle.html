@@ -1,0 +1,63 @@
+<section class="chapter" id="ch05" data-num="05" data-icon="CalendarClock" data-title="دورة الفحص الأسبوعية" data-lead="من إنشاء المهام إلى اعتماد النتيجة: الرحلة الكاملة لكل التزام." data-pose="point">
+
+<p class="lead">قلب النظام هو <b>دورة أسبوعية</b> تتكرر دون تدخل: كل أحد ينشئ المجدول لكل التزام نشط مهمة فحص، ثم يسجّل مسؤول الامتثال نتيجتها، ثم يراجعها مدير.</p>
+
+<figure class="figure">{{diagram:cycle}}<figcaption><b>الشكل 5-1</b> مسار الالتزام الواحد خلال الأسبوع</figcaption></figure>
+
+<h2><span class="icon-chip">{{icon:CalendarDays:15}}</span>الدورة والمجدول</h2>
+<ul>
+<li>الدورة من <b>الأحد إلى السبت</b> بتوقيت الرياض. يبدأ المجدول عمله بعد منتصف ليل الأحد (00:05).</li>
+<li>تُنشأ <b>مهمة واحدة فقط</b> لكل التزام في كل دورة؛ ولو أُعيد تشغيل المجدول فلا يتكرر شيء.</li>
+<li>تُنشأ المهام للالتزامات <b>النشطة</b> والمطلوبة أسبوعياً فقط.</li>
+<li>يوسم المجدول أيضاً الإجراءات التصحيحية المتأخرة يومياً.</li>
+</ul>
+<callout hue="blue" icon="Info" title="إن لم تجد مهام هذا الأسبوع">قد لا يكون المجدول قد عمل بعد. تشغيله من مسؤولية فريق التشغيل (<code>npm run scheduler</code>). لا تُعرض مؤشرات امتثال دون مهام فعلية.</callout>
+
+<h2><span class="icon-chip">{{icon:ClipboardCheck:15}}</span>الخطوة 1: تسجيل النتيجة</h2>
+<p>من جدول المهام اضغط أيقونة <b>«تسجيل نتيجة»</b> {{icon:ClipboardCheck:12}} على صف الالتزام، فيفتح نموذج في أعلى الصفحة.</p>
+<table>
+<thead><tr><th style="width:24%">الحقل</th><th>ما تكتبه</th></tr></thead>
+<tbody>
+<tr><td>النتيجة</td><td><chip hue="green">ممتثل</chip> الالتزام مستوفى. <chip hue="red">يتطلب إجراء</chip> وُجدت مخالفة. <chip hue="gray">غير متحقق</chip> لم تستطع التحقق. <chip hue="gray">غير منطبق</chip> لا ينطبق على هذا الموقع.</td></tr>
+<tr><td>مرجع الدليل</td><td>رقم أو وصف الدليل (صورة، محضر، رقم تقرير).</td></tr>
+<tr><td>ملاحظة</td><td>ما رأيته، أو سبب «غير منطبق».</td></tr>
+</tbody>
+</table>
+<p>ثم اضغط <span class="ui-hint">إرسال للمراجعة</span>.</p>
+<callout hue="red" icon="ShieldAlert" title="قواعد يرفضها النظام">
+<ul style="margin:0;padding-inline-start:16pt">
+<li>إن كان الالتزام <b>يتطلب دليلاً</b> فلا تُقبل النتيجة بلا مرجع دليل.</li>
+<li>نتيجة «غير منطبق» تتطلب <b>سبباً موثقاً</b> في الملاحظة.</li>
+</ul></callout>
+<p>بعد الإرسال تتحول المهمة إلى <chip hue="amber">قيد المراجعة</chip> وتصير النتيجة <chip hue="amber">بانتظار المراجعة</chip>.</p>
+
+<h2><span class="icon-chip">{{icon:CheckCheck:15}}</span>الخطوة 2: المراجعة</h2>
+<p>يفتح المدير أيقونة <b>«مراجعة النتيجة»</b> {{icon:CheckCheck:12}} (تظهر لمن يملك صلاحية المراجعة فقط وللنتائج المنتظِرة).</p>
+<table>
+<thead><tr><th style="width:22%">القرار</th><th>الأثر</th></tr></thead>
+<tbody>
+<tr><td><chip hue="green">اعتماد</chip></td><td>تصبح النتيجة <b>نهائية</b> وتدخل في حساب النسب. ولا تُعاد إلا بإجراء إداري، لا بإرسال عادي.</td></tr>
+<tr><td><chip hue="red">إرجاع للتصحيح</chip></td><td><b>سبب الإرجاع مطلوب.</b> تعود المهمة إلى مسؤول الامتثال ليصحّحها ويعيد إرسالها.</td></tr>
+<tr><td><chip hue="red">تصعيد</chip></td><td>تُرفع النتيجة للمتابعة الإدارية، ويُولَّد إشعار «نتيجة مصعّدة».</td></tr>
+</tbody>
+</table>
+<callout hue="red" icon="ShieldAlert" title="لا مراجعة ذاتية">لا يستطيع المراجع اعتماد نتيجة أرسلها هو. وقرار المراجعة لا يغيّر حالة الإجراء التصحيحي؛ فهما مساران مستقلان.</callout>
+
+<h2><span class="icon-chip">{{icon:Wrench:15}}</span>الخطوة 3: إن كانت النتيجة «تتطلب إجراء»</h2>
+<p>تظهر أيقونة <b>«إنشاء إجراء تصحيحي»</b> {{icon:Wrench:12}} في صف المهمة، فيُنشئ المدير إجراءً لمعالجة المخالفة، وتكمل القصة في الفصل السادس. لا يُنشأ إجراء إلا لنتيجة «تتطلب إجراء».</p>
+
+<h2><span class="icon-chip">{{icon:Table2:15}}</span>الحالات الأربع المستقلة</h2>
+<p>في النظام أربعة أنواع من «الحالة» لا تختلط ببعضها، ومن ثمّ قد ترى مثلاً نتيجة «تتطلب إجراء» ومراجعتها «بانتظار المراجعة» ومهمتها «قيد المراجعة» وإجراؤها «مفتوحاً» معاً:</p>
+<ttl icon="Layers" title="الحالات في دورة الفحص" sub="كل نوع له قاموسه الخاص" />
+<table>
+<thead><tr><th style="width:18%">النوع</th><th>القيم</th></tr></thead>
+<tbody>
+<tr><td><b>المهمة</b></td><td><chip hue="gray">غير مسندة</chip> <chip hue="blue">مسندة</chip> <chip hue="blue">قيد التنفيذ</chip> <chip hue="amber">قيد المراجعة</chip> <chip hue="red">متأخرة</chip> <chip hue="green">مغلقة</chip></td></tr>
+<tr><td><b>النتيجة</b></td><td><chip hue="green">ممتثل</chip> <chip hue="red">يتطلب إجراء</chip> <chip hue="gray">غير متحقق</chip> <chip hue="gray">غير منطبق</chip></td></tr>
+<tr><td><b>المراجعة</b></td><td><chip hue="amber">بانتظار المراجعة</chip> <chip hue="green">معتمد</chip> <chip hue="red">معاد للتصحيح</chip> <chip hue="red">مصعّد</chip></td></tr>
+<tr><td><b>الإجراء التصحيحي</b></td><td><chip hue="blue">مفتوح</chip> <chip hue="blue">قيد التنفيذ</chip> <chip hue="amber">بانتظار التحقق</chip> <chip hue="green">تم الحل</chip> <chip hue="red">متأخر</chip></td></tr>
+</tbody>
+</table>
+<tip pose="think" title="نصيحة من المرشد">إن بدت لك الأرقام غير متسقة، فتأكد من أنك تقارن الحالة الصحيحة؛ فالمهمة غير النتيجة، والنتيجة غير المراجعة.</tip>
+
+</section>
